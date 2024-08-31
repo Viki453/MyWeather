@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MyWeather</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="/styles/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&family=Playwrite+BE+VLG:wght@100..400&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="icon" href="https://cdn.jim-nielsen.com/ios/512/weather-2021-12-07.png?rf=1024" type="image/png">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&family=Playwrite+BE+VLG:wght@100..400&family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+</head>
+<body background="/images/peakpx.jpg">
+    <header>
+        <nav id="navbar">
+            <ul>
+                <li> <img src="https://cdn.jim-nielsen.com/ios/512/weather-2021-12-07.png?rf=1024" alt="icon" srcset="" class="navimg"></li>
+                <li class="nav-item">MyWeather</li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <div id="location">
+            ⚲ <%= city %>
+        </div>
+        <div class="housing">
+            <div class="item" id="item1">
+                <div id="weather" class="climate">
+                    <% if (locals.data.weather && locals.data.weather[0].main) { %>
+                        <% switch (data.weather[0].main) {
+                            case "Thunderstorm": %>
+                                <img src="https://openweathermap.org/img/wn/11d@2x.png" alt="Thunderstorm">
+                                <% break;
+                            case "Drizzle": %>
+                                <img src="https://openweathermap.org/img/wn/09d@2x.png" alt="Drizzle">
+                                <% break;
+                            case "Rain":
+                                switch (data.weather[0].description) {
+                                    case "light rain": %>
+                                        <img src="https://openweathermap.org/img/wn/10d@2x.png" alt="Light rain">
+                                        <% break;
+                                    case "moderate rain": %>
+                                        <img src="https://openweathermap.org/img/wn/10d@2x.png" alt="Moderate rain">
+                                        <% break;
+                                    case "heavy intensity rain": %>
+                                        <img src="https://openweathermap.org/img/wn/10d@2x.png" alt="Heavy intensity rain">
+                                        <% break;
+                                    case "very heavy rain": %>
+                                        <img src="https://openweathermap.org/img/wn/10d@2x.png" alt="Very heavy rain">
+                                        <% break;
+                                    case "extreme rain": %>
+                                        <img src="https://openweathermap.org/img/wn/10d@2x.png" alt="Extreme rain">
+                                        <% break;
+                                    case "freezing rain": %>
+                                        <img src="https://openweathermap.org/img/wn/13d@2x.png" alt="Freezing rain">
+                                        <% break;
+                                    case "light intensity shower rain": %>
+                                        <img src="https://openweathermap.org/img/wn/09d@2x.png" alt="Light intensity shower rain">
+                                        <% break;
+                                    case "shower rain": %>
+                                        <img src="https://openweathermap.org/img/wn/09d@2x.png" alt="Shower rain">
+                                        <% break;
+                                    case "heavy intensity shower rain": %>
+                                        <img src="https://openweathermap.org/img/wn/09d@2x.png" alt="Heavy intensity shower rain">
+                                        <% break;
+                                    case "ragged shower rain": %>
+                                        <img src="https://openweathermap.org/img/wn/09d@2x.png" alt="Ragged shower rain">
+                                        <% break;
+                                    default: %>
+                                        <p>Unable to fetch data</p>
+                                <% } break;
+                            case "Snow":
+                                switch (data.weather[0].description) {
+                                    case "light snow": %>
+                                        <img src="https://openweathermap.org/img/wn/13d@2x.png" alt="Light snow">
+                                        <% break;
+                                    case "Snow": %>
+                                        <img src="https://openweathermap.org/img/wn/13d@2x.png" alt="Snow">
+                                        <% break;
+                                    case "Heavy snow": %>
+                                        <img src="https://openweathermap.org/img/wn/13d@2x.png" alt="Heavy snow">
+                                        <% break;
+                                    case "Sleet": %>
+                                        <img src="https://openweathermap.org/img/wn/13d@2x.png" alt="Sleet">
+                                        <% break;
+                                    case "Light shower sleet": %>
+                                        <img src="https://openweathermap.org/img/wn/13d@2x.png" alt="Light shower sleet">
+                                        <% break;
+                                    case "Shower sleet": %>
+                                        <img src="https://openweathermap.org/img/wn/13d@2x.png" alt="Shower sleet">
+                                        <% break;
+                                    case "Light rain and snow": %>
+                                        <img src="https://openweathermap.org/img/wn/13d@2x.png" alt="Light rain and snow">
+                                        <% break;
+                                    case "Rain and snow": %>
+                                        <img src="https://openweathermap.org/img/wn/13d@2x.png" alt="Rain and snow">
+                                        <% break;
+                                    case "Light shower snow": %>
+                                        <img src="https://openweathermap.org/img/wn/13d@2x.png" alt="Light shower snow">
+                                        <% break;
+                                    case "Shower snow": %>
+                                        <img src="https://openweathermap.org/img/wn/13d@2x.png" alt="Shower snow">
+                                        <% break;
+                                    case "Heavy shower snow": %>
+                                        <img src="https://openweathermap.org/img/wn/13d@2x.png" alt="Heavy shower snow">
+                                        <% break;
+                                    default: %>
+                                        <p>Unable to fetch data</p>
+                                <% } break;
+                            case "Mist": %>
+                                <img src="https://openweathermap.org/img/wn/50d@2x.png" alt="Mist">
+                                <% break;
+                            case "Smoke": %>
+                                <img src="https://openweathermap.org/img/wn/50d@2x.png" alt="Smoke">
+                                <% break;
+                            case "Haze": %>
+                                <img src="https://openweathermap.org/img/wn/50d@2x.png" alt="Haze">
+                                <% break;
+                            case "Dust": %>
+                                <img src="https://openweathermap.org/img/wn/50d@2x.png" alt="Dust">
+                                <% break;
+                            case "Fog": %>
+                                <img src="https://openweathermap.org/img/wn/50d@2x.png" alt="Fog">
+                                <% break;
+                            case "Sand": %>
+                                <img src="https://openweathermap.org/img/wn/50d@2x.png" alt="Sand">
+                                <% break;
+                            case "Ash": %>
+                                <img src="https://openweathermap.org/img/wn/50d@2x.png" alt="Ash">
+                                <% break;
+                            case "Squall": %>
+                                <img src="https://openweathermap.org/img/wn/50d@2x.png" alt="Squall">
+                                <% break;
+                            case "Tornado": %>
+                                <img src="https://openweathermap.org/img/wn/50d@2x.png" alt="Tornado">
+                                <% break;
+                            case "Clear": %>
+                                <img src="https://openweathermap.org/img/wn/01d@2x.png" alt="Clear">
+                                <% break;
+                            case "Clouds":
+                                switch (data.weather[0].description) {
+                                    case "few clouds": %>
+                                        <img src="https://openweathermap.org/img/wn/02d@2x.png" alt="Few clouds">
+                                        <% break;
+                                    case "scattered clouds": %>
+                                        <img src="https://openweathermap.org/img/wn/03d@2x.png" alt="Scattered clouds">
+                                        <% break;
+                                    case "broken clouds": %>
+                                        <img src="https://openweathermap.org/img/wn/04d@2x.png" alt="Broken clouds">
+                                        <% break;
+                                    case "overcast clouds": %>
+                                        <img src="https://openweathermap.org/img/wn/04d@2x.png" alt="Overcast clouds">
+                                        <% break;
+                                    default: %>
+                                        <p>Unable to fetch data</p>
+                                <% } break;
+                            default: %>
+                                <p>Unable to fetch data</p>
+                        <% } %>
+                    
+                        <%= data.weather[0].main %>
+                    <% } else { %>
+                        <p>unable to fetch data</p>
+                    <% } %>
+                </div>
+                <div id="description" class="climate">
+                    <% if (locals.data.weather && locals.data.weather[0].description) { %>
+                        <p>Looks like <%=data.weather[0].description %></p>
+                    <% } else { %>
+                        <p>unable to fetch data</p>
+                    <% } %>
+                </div>
+            </div>
+            <div class="item">
+                <div class="c2">
+                    <div class="modules">
+                        <% if (locals.data.main && locals.data.main.temp) { %>
+                            <img src="/images/Temperature/pngwing.com.png" alt="Temperature" class = "icons">
+                            <p>temperature is <%= data.main.temp %> ℃</p>
+                            
+                        <% } else { %>
+                            <p>unable to fetch data</p>
+                        <% } %>
+                    </div>
+                </div>
+            </div>
+            <div class="item">
+                <div class="c2">
+                    <div class="modules">
+                    <% if (locals.data.wind && locals.data.wind.speed) { %>
+                            <img src="/images/Wind/vecteezy_3d-weather-icon_27245522.png" alt="Wind" class="icons">
+                            <p>Wind speed is <%= data.wind.speed %> m/s</p>
+                        <% } else { %>
+                            <p>unable to fetch data</p>
+                        <% } %>
+                    </div>
+                </div>
+            </div>
+            <div class="item">
+                <div class="c2">
+                    <div class="modules">
+                    <% if (locals.data.visibility) { %>
+                            <img src="/images/Visibility/vecteezy_realistic-cumulus-cloud_12376083.png" alt="Visibility" class="icons" id = "fog">
+                            <p>Visibility is <%= (data.visibility)/1000 %> KM</p>
+                        <% } else { %>
+                            <p>unable to fetch data</p>
+                        <% } %>
+                    </div>
+                </div>
+            </div>
+            <div class="item">
+                <div class="c2">
+                    <div class="modules">
+                        <% if (locals.data.main && locals.data.main.humidity) { %>
+                            <img src="/images/Humidity/humidity.png" alt="Humidity" class="icons">
+                            <p>Humidity is <%=data.main.humidity%>%</p>
+                        <% } else { %>
+                            <p>unable to fetch data</p>
+                        <% } %>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="back">
+            <form action="/back" method="get">
+                <input type="submit" value="Back" id = "Sbutton">
+            </form>
+            </div>
+    </main>
+</body>
+</html>

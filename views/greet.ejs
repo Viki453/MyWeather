@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MyWeather</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&family=Playwrite+BE+VLG:wght@100..400&family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+<link rel="icon" href="https://cdn.jim-nielsen.com/ios/512/weather-2021-12-07.png?rf=1024" type="image/png">
+<link rel="stylesheet" href="/styles/greets.css">
+</head>
+<body background="../public/images/peakpx.jpg ">
+    <header>
+        <nav id="navbar">
+            <ul>
+                <li> <img src="https://cdn.jim-nielsen.com/ios/512/weather-2021-12-07.png?rf=1024" alt="icon" srcset="" class="navimg"></li>
+                <li class="nav-item">MyWeather</li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <div class = "main-container">
+            <form action="/submit" method = "post" id = "form1">
+                <h1>Welcome to MyWeather</h1>
+                <p>Enter your Country Code (Eg: IN)</p>
+                <input type="text" placeholder="Country Code"  name = "countrycode" class = "zipcode" required>
+                <p>Enter your City</p>
+                <input type="text" placeholder="City"  name = "city" class = "zipcode" required>
+                <input type="submit" value="Submit" id = "Sbutton">
+            </form>
+        </div>
+    </main>
+</body>
+</html>
